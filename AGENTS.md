@@ -4,7 +4,7 @@ API. Nest + TypeScript. `data.json` at the repo root is the database.
 
 ## Run
 
-Run every command from the **repo root**. `data.json` is resolved with `process.cwd()`, and Jest’s `rootDir` is `src/`. Node 18+ (see `.nvmrc`).
+Run every command from the **repo root**. `data.json` is resolved with `process.cwd()`, and Jest’s `rootDir` is `src/`. API: Node 18+ (see `.nvmrc`). Frontend: Node 20.19+ (Vite 8).
 
 - `yarn start` — API on http://localhost:3000
 - `yarn start:web` — Vite on http://localhost:5173
@@ -17,7 +17,7 @@ Run every command from the **repo root**. `data.json` is resolved with `process.
 
 ## Web
 
-Vite + React in `web/`. Start the API first (`yarn start`). Copy `web/.env.example` to `web/.env` (`VITE_API_URL=http://localhost:3000`).
+Vite + React in `web/`. Requires Node 20.19+. Start the API first (`yarn start`). Copy `web/.env.example` to `web/.env` (`VITE_API_URL=http://localhost:3000`). `npm --prefix web install` uses `web/package-lock.json`.
 
 - `yarn start:web` — Vite on http://localhost:5173 (`npm --prefix web run dev`)
 - `npm --prefix web run build` — `tsc -b` then Vite production build

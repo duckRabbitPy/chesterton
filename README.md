@@ -41,6 +41,11 @@ There is no frontend setup - you are free to setup one of your own React-based o
 
 There is a `data.json` file containing user data in this repository, which you should read from in place of a database.
 
+### Running this solution
+
+- API: Node 18+ — `yarn` then `yarn start` (http://localhost:3000)
+- Frontend (`web/`): Node 20.19+ (Vite 8) — `npm --prefix web install` then `yarn start:web` (http://localhost:5173). Optional: copy `web/.env.example` to `web/.env`.
+
 ## 1. The Backend Task
 
 Within this codebase, create an endpoint `/comms/your-next-delivery/<USER-ID>`, that looks up the corresponding user's data, and returns a JSON payload of the following shape:
