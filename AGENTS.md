@@ -7,12 +7,23 @@ API. Nest + TypeScript. `data.json` at the repo root is the database.
 Run every command from the **repo root**. `data.json` is resolved with `process.cwd()`, and Jest’s `rootDir` is `src/`. Node 18+ (see `.nvmrc`).
 
 - `yarn start` — API on http://localhost:3000
+- `yarn start:web` — Vite on http://localhost:5173
 - `yarn build` — `nest build` → `dist/`
 - `yarn test` — Jest (`*.spec.ts` under `src/`)
 - `yarn test:watch` — Jest in watch mode
 - `yarn lint:format` — Prettier then ESLint `--fix`
 - `yarn typecheck` — `tsc --noEmit`
 - `yarn ci` — lint:format, typecheck, test, build (local CI)
+
+## Web
+
+Vite + React in `web/`. Start the API first (`yarn start`). Copy `web/.env.example` to `web/.env` (`VITE_API_URL=http://localhost:3000`).
+
+- `yarn start:web` — Vite on http://localhost:5173 (`npm --prefix web run dev`)
+- `npm --prefix web run build` — `tsc -b` then Vite production build
+- `npm --prefix web run preview` — serve the production build
+- `npm --prefix web run typecheck` — `tsc -b`
+- `npm --prefix web run lint` — oxlint
 
 ## Rules
 
