@@ -5,12 +5,17 @@ import { Customer, customersFileSchema } from './customer.schema';
 
 @Injectable()
 export class CustomersRepository {
-  readonly customers: readonly Customer[];
+  private readonly byId: ReadonlyMap<string, Customer>;
 
   constructor() {
     const filePath = join(process.cwd(), 'data.json');
-    this.customers = customersFileSchema.parse(
+    const parsed = customersFileSchema.parse(
       JSON.parse(readFileSync(filePath, 'utf8')),
     );
+    this.byId = new Map(parsed.map((customer) => [customer.id, customer]));
+  }
+
+  findById(id: string): Customer | undefined {
+    return this.byId.get(id);
   }
 }
